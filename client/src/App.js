@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import Test from "./pages/Test";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import { ToastContainer } from "react-toastify";
@@ -14,6 +13,8 @@ import AdminHome from "./pages/Admin/AdminHome";
 import DonarList from "./pages/Admin/DonarList";
 import HospitalList from "./pages/Admin/HospitalList";
 import OrgList from "./pages/Admin/OrgList";
+import HomePage from "./pages/HomePage";
+import Modal from "./components/shared/Modal/Modal";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
       <Routes>
         <Route
           path="/home"
-          element={<ProtectedRoute>{<Test />}</ProtectedRoute>}
+          element={<ProtectedRoute>{<HomePage />}</ProtectedRoute>}
         />
         <Route
           path="/orgnaisation"
@@ -60,6 +61,10 @@ function App() {
           path="/organisation-list"
           element={<ProtectedRoute>{<OrgList />}</ProtectedRoute>}
         />
+        {/* <Route
+          path="/modal"
+          element={<ProtectedRoute>{<Modal />}</ProtectedRoute>}
+        /> */}
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
       </Routes>
