@@ -82,9 +82,9 @@ const loginController = async (req, res) => {
 // Get current User
 const currentUserController = async (req, res) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     const user = await userModel.findOne({ _id: req.body.userId });
-    console.log("hello" + user);
+    console.log("Logged in as -> " + user.role);
     return res.status(200).send({
       success: true,
       message: "User fetched successfully",

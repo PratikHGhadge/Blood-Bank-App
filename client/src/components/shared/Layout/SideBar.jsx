@@ -12,7 +12,7 @@ function SideBar() {
   const [navigation, setnavigation] = useState([]);
 
   useEffect(() => {
-    console.log(user?.role);
+    // console.log(user?.role);
     if (user?.role == "organization") {
       setnavigation(OrganistionMenue);
     } else if (user?.role == "hospital") {

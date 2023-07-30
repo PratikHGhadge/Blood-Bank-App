@@ -5,7 +5,7 @@ import API from "../../../services/API";
 const Modal = ({ onClose }) => {
   const [bloodGroup, setBloodGroup] = useState("");
   const [inventoryType, setInventoryType] = useState("");
-  const [donarEmail, setDonarEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [quantity, setQuantity] = useState(0);
   const { user } = useSelector((state) => state.auth);
 
@@ -20,20 +20,21 @@ const Modal = ({ onClose }) => {
         inventoryType,
         bloodGroup,
         quantity,
-        donarEmail,
-        organisation: "64bdfe6f8956fffc0bed9509",
-        hospital: user?._id,
-        email: user.email,
-        donar: user?._id,
+        email,
+        organisation: user?._id,
+        email,
+        // hospital: user?._id,
+        // email: user.email,
+        // donar: user?._id,
       });
       if (data?.success) {
         alert("New Recored Created");
-        window.location.reload();
+        // window.location.reload();
       }
     } catch (error) {
       alert(error.response.data.message);
-      console.log(error);
-      window.location.reload();
+      // console.log(error);
+      // window.location.reload();
     }
   };
 
@@ -90,8 +91,8 @@ const Modal = ({ onClose }) => {
             <input
               type="donarEmail"
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"
-              value={donarEmail}
-              onChange={(e) => setDonarEmail(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-4">
