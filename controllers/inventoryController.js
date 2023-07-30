@@ -137,9 +137,35 @@ const getDonarsController = async (req, res) => {
     });
   }
 };
+// GET DONAR RECORDS
+const getHospitalsController = async (req, res) => {
+  try {
+    const organisation = req.body.userId;
+    // find donar?
+    const hospitalId = await inventoryModel.distinct("hospital", {
+      organisation,
+    });
+    // console.log(donarId)
+    const hospitals = await userModel.find({ _id: { $in: hospitalId } });
+    // console.log(donars);
+    return res.status(200).send({
+      success: true,
+      message: "Donar Record Fetched Successfully",
+      hospitals,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      success: false,
+      message: "Error in hospitals records",
+      error,
+    });
+  }
+};
 
 module.exports = {
   createInventoryController,
   getInventoryController,
   getDonarsController,
+  getHospitalsController,
 };

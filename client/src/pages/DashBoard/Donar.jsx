@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../../components/shared/Layout/Layout";
 import API from "../../services/API";
+import Donartable from "../../components/shared/tables/Donartable";
 
 export const Donar = () => {
   const [data, setData] = useState([]);
@@ -10,7 +11,7 @@ export const Donar = () => {
       const { data } = await API.get("/inventory/get-donars");
       // console.log(data);
       if (data?.success) {
-        setData(data);
+        setData(data.donars);
       }
     } catch (error) {
       console.log(error);
@@ -20,5 +21,9 @@ export const Donar = () => {
   useEffect(() => {
     getDonars();
   }, []);
-  return <Layout></Layout>;
+  return (
+    <Layout>
+      <Donartable data={data} />
+    </Layout>
+  );
 };

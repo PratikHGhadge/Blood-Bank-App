@@ -6,7 +6,7 @@ import { PlusIcon } from "../components/shared/Icons";
 import Modal from "../components/shared/Modal/Modal";
 // import { Navigate } from "react-router-dom";
 import API from "../services/API";
-import Table from "../components/shared/Table";
+import Table from "../components/shared/tables/InventoryTable";
 
 // import { Fragment, useState } from "react";
 // import { Dialog, Menu, Transition } from "@headlessui/react";
