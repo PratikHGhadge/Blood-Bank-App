@@ -1,15 +1,12 @@
-import { useState } from "react";
-import { UserIcon } from "../Icons";
-import { useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { React, useState } from "react";
+import { UserIcon } from "../components/shared/Icons";
+import { Link } from "react-router-dom";
 
-function Header() {
+function Analytics() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const user = useSelector((state) => state.auth);
-  const location = useLocation;
   return (
     <>
-      <div className="md:pl-64 ">
+      <div className="">
         <div className="sticky top-0 z-10 flex-shrink-0 h-16 bg-white border-b border-gray-200 flex">
           <button
             type="button"
@@ -22,9 +19,9 @@ function Header() {
           </button>
           <div className="flex-1 flex justify-between px-4 md:px-0">
             <div className="flex-1 my-2 flex">
-              <Link to="/analytics" className="nav-link">
+              <Link to="/" className="nav-link">
                 <div className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400 ml-8">
-                  Analytics
+                  Home
                 </div>
               </Link>
             </div>
@@ -51,4 +48,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Analytics;

@@ -89,6 +89,30 @@ const createInventoryController = async (req, res) => {
   }
 };
 
+// GET ALL Out BLOOD RECORDS consumers
+const getInventoryHospitalController = async (req, res) => {
+  try {
+    const inventory = await inventoryModel
+      .find(req.body.filters)
+      .populate("donar")
+      .populate("hospital")
+      .populate("organisation")
+      .sort({ createdAt: -1 });
+    return res.status(200).send({
+      success: true,
+      message: "get hospitals consumers recoreds successfully ",
+      inventory,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      success: false,
+      message: "error in get consumer inventory ",
+      error,
+    });
+  }
+};
+
 // GET ALL BLOOD RECORDS
 const getInventoryController = async (req, res) => {
   try {
@@ -137,6 +161,7 @@ const getDonarsController = async (req, res) => {
     });
   }
 };
+
 // GET DONAR RECORDS
 const getHospitalsController = async (req, res) => {
   try {
@@ -163,9 +188,68 @@ const getHospitalsController = async (req, res) => {
   }
 };
 
+// GET ORGANISATION RECORDS
+const getOrganisationController = async (req, res) => {
+  try {
+    const donar = req.body.userId;
+    // find ORGANISATION?
+    const organisationId = await inventoryModel.distinct("organisation", {
+      donar,
+    });
+    // console.log(donarId)
+    const organisations = await userModel.find({
+      _id: { $in: organisationId },
+    });
+    // console.log(donars);
+    return res.status(200).send({
+      success: true,
+      message: "organisation Record Fetched Successfully",
+      organisations,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      success: false,
+      message: "Error in organisation records",
+      error,
+    });
+  }
+};
+
+// GET ORGANISATION For Hospital RECORDS
+const getOrganisationForHospitalController = async (req, res) => {
+  try {
+    const hospital = req.body.userId;
+    // find ORGANISATION?
+    const organisationId = await inventoryModel.distinct("organisation", {
+      hospital,
+    });
+    // console.log(donarId
+    const organisations = await userModel.find({
+      _id: { $in: organisationId },
+    });
+    // console.log(hospitals);
+    return res.status(200).send({
+      success: true,
+      message: "organisation Record for hospital Fetched Successfully",
+      organisations,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      success: false,
+      message: "Error in organisation records",
+      error,
+    });
+  }
+};
+
 module.exports = {
   createInventoryController,
   getInventoryController,
   getDonarsController,
   getHospitalsController,
+  getOrganisationController,
+  getOrganisationForHospitalController,
+  getInventoryHospitalController,
 };
