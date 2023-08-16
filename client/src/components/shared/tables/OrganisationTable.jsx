@@ -1,4 +1,5 @@
 import moment from "moment";
+import { useEffect } from "react";
 export default function HospitalTable({ data }) {
   return (
     <div className="flex md:pl-64 m-8  flex-col">

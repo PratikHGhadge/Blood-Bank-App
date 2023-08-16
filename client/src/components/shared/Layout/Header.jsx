@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { UserIcon } from "../Icons";
 import { useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 
 function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -39,6 +39,7 @@ function Header() {
             <div className="ml-4 flex mr-4 items-center md:ml-6">
               <button
                 type="button"
+                onClick={(e) => {}}
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
               >
                 LogOut

@@ -5,7 +5,7 @@ export const adminMenue = [
     name: "Donar List",
     href: "/donar-list",
     icon: ArchiveBoxArrowDownIcon,
-    current: false,
+    current: true,
   },
   {
     name: "hospital-list",

@@ -9,7 +9,7 @@ export const OrganistionMenue = [
     name: "Inventory",
     href: "/home",
     icon: ArchiveBoxArrowDownIcon,
-    current: false,
+    current: true,
   },
   { name: "Donar", href: "/donar", icon: DonarIcon, current: false },
   { name: "Hospital", href: "/hospital", icon: HospitalIcon, current: false },

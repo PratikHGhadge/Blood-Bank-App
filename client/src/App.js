@@ -15,8 +15,8 @@ import DonarList from "./pages/Admin/DonarList";
 import HospitalList from "./pages/Admin/HospitalList";
 import OrgList from "./pages/Admin/OrgList";
 import HomePage from "./pages/HomePage";
-import Modal from "./components/shared/Modal/Modal";
 import Analytics from "./pages/Analytics";
+import Inventory from "./pages/DashBoard/Inventory";
 
 function App() {
   return (
@@ -29,7 +29,11 @@ function App() {
         />
         <Route
           path="/"
-          element={<ProtectedRoute>{<HomePage />}</ProtectedRoute>}
+          element={<ProtectedRoute>{<Register />}</ProtectedRoute>}
+        />
+        <Route
+          path="/inventory"
+          element={<ProtectedRoute>{<Inventory />}</ProtectedRoute>}
         />
         <Route
           path="/orgnaisation"

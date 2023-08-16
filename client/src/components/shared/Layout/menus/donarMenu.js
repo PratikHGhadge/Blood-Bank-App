@@ -5,7 +5,7 @@ export const donarMenue = [
     name: "Orgnaisation",
     href: "/orgnaisation",
     icon: ArchiveBoxArrowDownIcon,
-    current: false,
+    current: true,
   },
   { name: "Donation", href: "/donation", icon: HospitalIcon, current: false },
 ];

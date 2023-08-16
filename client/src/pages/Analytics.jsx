@@ -1,9 +1,25 @@
 import { React, useState } from "react";
 import { UserIcon } from "../components/shared/Icons";
 import { Link } from "react-router-dom";
+import API from "../services/API";
 
 function Analytics() {
+  const [data, setData] = useState([]);
+  const [inventoryData, setInventoryData] = useState([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const colors = {};
+
+  const getBloodGroupData = async () => {
+    try {
+      const { data } = await API.get("/analytics/bloodGroup-data");
+      if (data?.success) {
+        setData(data?.getBloodGroupData);
+        console.log(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <div className="">

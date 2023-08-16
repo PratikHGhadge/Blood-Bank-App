@@ -5,7 +5,7 @@ export const handleLogin = (e, email, password, role) => {
   e.preventDefault();
   try {
     if (!role || !email || !password) {
-      return alert("Please privde all fields");
+      return alert("Please provide all fields");
     }
     store.dispatch(userLogin({ email, password, role }));
   } catch (error) {

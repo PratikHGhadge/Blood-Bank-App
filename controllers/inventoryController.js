@@ -7,10 +7,11 @@ const createInventoryController = async (req, res) => {
   try {
     const { email } = req.body;
     //validation
+
     const user = await userModel.findOne({ email });
 
     if (!user) {
-      throw new Error("User Not Found");
+      throw new Error("User Not Found Please enter valid email address");
     }
 
     // calculations
@@ -77,13 +78,13 @@ const createInventoryController = async (req, res) => {
     await inventory.save();
     return res.status(201).send({
       success: true,
-      message: "new blood recored added",
+      message: "New Record Created successfully",
     });
   } catch (error) {
     console.log(error);
     return res.status(500).send({
       success: false,
-      message: "Error In create Inventory API",
+      message: error.message,
       error,
     });
   }

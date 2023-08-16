@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import API from "../../../services/API";
+import { toast } from "react-toastify";
 
 const Modal = ({ onClose }) => {
   const [bloodGroup, setBloodGroup] = useState("");
@@ -13,7 +14,11 @@ const Modal = ({ onClose }) => {
     e.preventDefault();
     try {
       if (!bloodGroup || !quantity) {
-        return alert("please provide all Fields");
+        toast.error("please provide all Fields", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        return;
       }
       // calling api for submitting data
       const { data } = await API.post("/inventory/create-inventory", {
@@ -23,18 +28,23 @@ const Modal = ({ onClose }) => {
         email,
         organisation: user?._id,
         email,
-        // hospital: user?._id,
-        // email: user.email,
-        // donar: user?._id,
       });
       if (data?.success) {
-        alert("New Recored Created");
-        // window.location.reload();
+        toast.success(data.message, {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      } else if (data?.success == false) {
+        toast.warn(data.message, {
+          position: "top-right",
+          autoClose: 3000,
+        });
       }
     } catch (error) {
-      alert(error.response.data.message);
-      // console.log(error);
-      // window.location.reload();
+      toast.error(error.response.data.message, {
+        position: "top-right",
+        autoClose: 3000,
+      });
     }
   };
 

@@ -4,8 +4,8 @@ import Layout from "../../components/shared/Layout/Layout";
 import HospitalTable from "../../components/shared/tables/HospitalTable";
 
 function Hospital() {
-  const [data, setData] = new useState([]);
-  const getHodpitalData = async () => {
+  const [data, setData] = useState([]);
+  const getHospitalData = async () => {
     const { data } = await API.get("/inventory/get-hospitals");
     if (data?.success) {
       setData(data.hospitals);
@@ -13,7 +13,7 @@ function Hospital() {
   };
 
   useEffect(() => {
-    getHodpitalData();
+    getHospitalData();
   }, []);
 
   return (
