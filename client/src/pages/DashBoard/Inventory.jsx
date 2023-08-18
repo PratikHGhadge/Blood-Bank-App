@@ -62,7 +62,7 @@ function Inventory() {
                     <div className="px-4 sm:px-6 md:px-0">
                       {/* content */}
                       <div className="py-4">
-                        <div className="h-96 border-4 border-dashed border-gray-200 rounded-lg">
+                        <div className="h-96  rounded-lg">
                           <hr />
                           {/* table for printing inventory data */}
                           <Table data={data} />

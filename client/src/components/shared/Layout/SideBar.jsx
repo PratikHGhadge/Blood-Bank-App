@@ -6,6 +6,7 @@ import { donarMenue } from "./menus/donarMenu";
 import { adminMenue } from "./menus/adminMenu";
 import { useSelector } from "react-redux";
 import { printMenu } from "./menus/PrintMenu";
+import { motion } from "framer-motion";
 
 function SideBar() {
   const { user } = useSelector((state) => state.auth);

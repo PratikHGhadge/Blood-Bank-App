@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -9,33 +10,35 @@ function printMenu(navigation) {
   return (
     <>
       {navigation.map((item) => (
-        <Link
-          onClick={(e) => {
-            navigation.map((i) => {
-              i.current = false;
-            });
-            item.current = true;
-          }}
-          key={item.name}
-          to={item.href}
-          className={classNames(
-            item.current
-              ? "bg-gray-100 text-gray-900"
-              : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
-            "group  rounded-md py-2 px-2 flex items-center text-xl mx-2 my-2 font-medium"
-          )}
-        >
-          <item.icon
+        <motion.div whileHover={{ scale: 1.05 }}>
+          <Link
+            onClick={(e) => {
+              navigation.map((i) => {
+                i.current = false;
+              });
+              item.current = true;
+            }}
+            key={item.name}
+            to={item.href}
             className={classNames(
               item.current
-                ? "text-gray-500 "
-                : "text-gray-400  group-hover:text-gray-500",
-              "mr-3 flex-shrink-0 h-6 w-6 "
+                ? "bg-gray-100 text-gray-900"
+                : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
+              "group  rounded-md py-2 px-2 flex items-center text-xl mx-2 my-2 font-medium"
             )}
-            aria-hidden="true"
-          />
-          <h2 className="ml-4">{item.name}</h2>
-        </Link>
+          >
+            <item.icon
+              className={classNames(
+                item.current
+                  ? "text-gray-500 "
+                  : "text-gray-400  group-hover:text-gray-500",
+                "mr-3 flex-shrink-0 h-6 w-6 "
+              )}
+              aria-hidden="true"
+            />
+            <h2 className="ml-4">{item.name}</h2>
+          </Link>
+        </motion.div>
       ))}
     </>
   );

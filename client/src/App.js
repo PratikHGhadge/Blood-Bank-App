@@ -5,7 +5,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProtectedRoute from "./components/shared/Routes/ProtectedRoute";
 import Organistion from "./pages/DashBoard/Organistion";
-import OrganisationForHospital from "./pages/DashBoard/OrganisationForHospital";
 import { Donar } from "./pages/DashBoard/Donar";
 import Hospital from "./pages/DashBoard/Hospital";
 import Consumer from "./pages/DashBoard/Consumer";
@@ -71,20 +70,11 @@ function App() {
           path="/organisation-list"
           element={<ProtectedRoute>{<OrgList />}</ProtectedRoute>}
         />
-        <Route
-          path="/get-organisation-for-hospital"
-          element={
-            <ProtectedRoute>{<OrganisationForHospital />}</ProtectedRoute>
-          }
-        />
+
         <Route
           path="/analytics"
           element={<ProtectedRoute>{<Analytics />}</ProtectedRoute>}
         />
-        {/* <Route
-          path="/modal"
-          element={<ProtectedRoute>{<Modal />}</ProtectedRoute>}
-        /> */}
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
       </Routes>

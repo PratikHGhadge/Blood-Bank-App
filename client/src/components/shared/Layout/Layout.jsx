@@ -10,7 +10,7 @@ function Layout({ children }) {
       <div>
         <SideBar />
       </div>
-      <div className=" ">{children} </div>
+      <div className="">{children} </div>
     </>
   );
 }
