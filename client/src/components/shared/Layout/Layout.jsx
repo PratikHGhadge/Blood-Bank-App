@@ -4,7 +4,7 @@ import SideBar from "./SideBar";
 function Layout({ children }) {
   return (
     <>
-      <div className="header">
+      <div className="header ">
         <Header />
       </div>
       <div>

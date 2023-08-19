@@ -43,13 +43,13 @@ function Inventory() {
           <div>
             <div className="md:pl-64 ">
               <div className="max-auto   flex   flex-col md:px-8 xl:px-0">
-                <main className="flex-1 px-4">
+                <main className="flex-1 ">
                   <div className="py-3">
                     <div className="rounded-md pl-2 cursor-pointer pr-4 bg-slate-400 shadow-xl w-fit mx-2 mt-2 py-2 flex items-center">
                       <button
                         onClick={handelOpenModal}
                         type="button"
-                        className="inline-flex px-5 py-4 items-center p-3 border border-transparent rounded-full shadow-sm text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
+                        className="inline-flex px-5 py-4 items-center p-3 rounded-full shadow-sm text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
                       >
                         <PlusIcon className="h-6 w-6" aria-hidden="true" />
                       </button>

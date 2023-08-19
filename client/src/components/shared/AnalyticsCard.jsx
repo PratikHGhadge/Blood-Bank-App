@@ -1,6 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
 function AnalyticsCard({ data }) {
   return (
     <div>
@@ -15,9 +22,10 @@ function AnalyticsCard({ data }) {
             whileTap={{ scale: 1 }}
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            variants={item}
             key={bloodGroup.index}
-            className="card col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200 bg-gradient-to-b from-red-600 to-pink-300"
+            className="item col-span-1 bg-white rounded-lg shadow divide-y divide-gray-200 bg-gradient-to-b from-red-600 to-pink-300"
           >
             <div className="w-full justify-between flex items-center  p-4 pb-0 space">
               <div className="w-20 h-auto text-6xl text-white font-serif  font-semibold">

@@ -33,6 +33,9 @@ app.use("/api/v1/inventory", require("./routes/inventoryRoutes"));
 // analytics route
 app.use("/api/v1/analytics", require("./routes/analyticsRoutes"));
 
+// admin route
+app.use("/api/v1/admin", require("./routes/adminRoutes"));
+
 // port
 const PORT = process.env.PORT || 8080;
 

@@ -139,6 +139,30 @@ const getInventoryController = async (req, res) => {
   }
 };
 
+// GET ALL BLOOD RECORDS
+const getRecentInventoryController = async (req, res) => {
+  try {
+    const inventory = await inventoryModel
+      .find({
+        organisation: req.body.userId,
+      })
+      .limit(3)
+      .sort({ createdAt: -1 });
+
+    return res.status(200).send({
+      success: true,
+      message: "Recent Inventory Data",
+      inventory,
+    });
+  } catch (error) {
+    return res.status(500).send({
+      success: false,
+      message: "Error in recent inventory API ",
+      error,
+    });
+  }
+};
+
 // GET DONAR RECORDS
 const getDonarsController = async (req, res) => {
   try {
@@ -253,4 +277,5 @@ module.exports = {
   getOrganisationController,
   getOrganisationForHospitalController,
   getInventoryHospitalController,
+  getRecentInventoryController,
 };

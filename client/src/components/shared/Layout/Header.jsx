@@ -1,12 +1,29 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 import { UserIcon } from "../Icons";
 import { useSelector } from "react-redux";
-import { Link, Navigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const user = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
   const location = useLocation;
+  // logout handler
+  const handleLogout = () => {
+    localStorage.clear();
+    toast.success("Logout Successfully", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+    navigate("/login");
+  };
   return (
     <>
       <div className="md:pl-64 ">
@@ -32,14 +49,16 @@ function Header() {
             <div className="flex items-center  mx-4">
               <UserIcon />
               <div className="flex mx-4 text-lg">
-                <h3>Welcom </h3>
-                <h3>{"e Pratik"}</h3>
+                <h3>Welcom_ </h3>
+                <h3>{user?.name}</h3>
+                <h3>{user?.organisationName}</h3>
+                <h3>{user?.hospitalName}</h3>
               </div>
             </div>
             <div className="ml-4 flex mr-4 items-center md:ml-6">
               <button
                 type="button"
-                onClick={(e) => {}}
+                onClick={handleLogout}
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
               >
                 LogOut

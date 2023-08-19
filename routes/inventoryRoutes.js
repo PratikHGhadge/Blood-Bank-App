@@ -7,6 +7,7 @@ const {
   getOrganisationController,
   getOrganisationForHospitalController,
   getInventoryHospitalController,
+  getRecentInventoryController,
 } = require("../controllers/inventoryController");
 const authMiddelware = require("../middlewares/authMiddelware");
 
@@ -19,6 +20,13 @@ router.post("/create-inventory", authMiddelware, createInventoryController);
 
 // get inventory || get
 router.get("/get-inventory", authMiddelware, getInventoryController);
+
+// get recent inventory || get
+router.get(
+  "/get-recent-inventory",
+  authMiddelware,
+  getRecentInventoryController
+);
 
 // get inventory Hospital || get
 router.post(
