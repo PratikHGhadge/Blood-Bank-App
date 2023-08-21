@@ -10,7 +10,9 @@ function Layout({ children }) {
       <div>
         <SideBar />
       </div>
-      <div className="">{children} </div>
+      <div className="bg-gradient-to-b from-red-400 to-pink-100 h-screen overflow-y-scroll">
+        {children}{" "}
+      </div>
     </>
   );
 }

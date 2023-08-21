@@ -25,7 +25,7 @@ export default function TableForAdmin({ data }) {
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200 ">
-              <thead className="bg-gray-50  bg-gradient-to-b from-red-300  to-red-100">
+              <thead className="bg-gray-50  ">
                 <tr>
                   <th
                     scope="col"
@@ -59,7 +59,7 @@ export default function TableForAdmin({ data }) {
                   </th>
                 </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200 bg-gradient-to-b from-red-100 to-pink-200">
+              <tbody className="bg-white divide-y divide-gray-200 ">
                 {data.map((record) => (
                   <tr key={record._id}>
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">

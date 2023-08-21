@@ -6,7 +6,6 @@ import { donarMenue } from "./menus/donarMenu";
 import { adminMenue } from "./menus/adminMenu";
 import { useSelector } from "react-redux";
 import { printMenu } from "./menus/PrintMenu";
-import { motion } from "framer-motion";
 
 function SideBar() {
   const { user } = useSelector((state) => state.auth);
@@ -27,10 +26,12 @@ function SideBar() {
 
   return (
     <>
-      <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 ">
+      <div className="md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 z-0">
         {/* Sidebar component, swap this element with another sidebar if you like */}
         <div className="border-r border-gray-200 pt-5 flex flex-col flex-grow bg-white overflow-y-auto bg-gradient-to-b from-red-600 to-pink-300">
           <div className="flex-shrink-0  px-4 flex items-center">
+            {/* <img className="h-12" src="/assets/logo.png" alt="logo" />
+             */}
             <LogoIcon></LogoIcon>
           </div>
           <div className="flex-grow mt-5 flex flex-col">
