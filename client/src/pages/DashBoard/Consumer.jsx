@@ -25,7 +25,7 @@ function Consumer() {
 
   return (
     <Layout>
-      <ConsumerAndDonationTable data={data}/>
+      <ConsumerAndDonationTable data={data} heading={"Consumption records"} />
     </Layout>
   );
 }

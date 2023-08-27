@@ -1,9 +1,9 @@
 import moment from "moment";
 import API from "../../../services/API";
 import { motion } from "framer-motion";
-export default function TableForAdmin({ data }) {
+import { toast } from "react-toastify";
+export default function TableForAdmin({ data, list }) {
   const handelDelete = async (id) => {
-    alert("hello");
     try {
       let ans = window.prompt("Are you sure want to delete this donar", "sure");
       if (!ans) {
@@ -12,7 +12,7 @@ export default function TableForAdmin({ data }) {
       const { data } = await API.delete(`/admin/delete-user/${id}
       `);
       if (data?.success) {
-        alert(data.message);
+        toast(data.message);
       }
       window.location.reload();
     } catch (error) {
@@ -22,6 +22,11 @@ export default function TableForAdmin({ data }) {
   return (
     <div className="flex md:pl-64 m-8  flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className=" mt-2">
+          <h1 className="flex items-center text-white mb-2 justify-center font-serif text-6xl font-bold bg-gradient-to-b from-red-600 to-pink-300 mx-8 rounded-lg">
+            {list}
+          </h1>
+        </div>
         <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
           <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-200 ">

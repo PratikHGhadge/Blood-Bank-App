@@ -49,6 +49,11 @@ function Analytics() {
           <Spinner />
         ) : (
           <>
+            <div className="md:pl-64 mt-6">
+              <h1 className="flex items-center text-white mb-2 justify-center font-serif text-6xl font-bold bg-gradient-to-b from-red-600 to-pink-300 mx-8 rounded-lg">
+                Recent Blood Recordes
+              </h1>
+            </div>
             <AnalyticsCard data={data}></AnalyticsCard>
             <div className="md:pl-64">
               <h1 className="flex items-center text-white mb-2 justify-center font-serif text-6xl font-bold bg-gradient-to-b from-red-600 to-pink-300 mx-8 rounded-lg">

@@ -36,7 +36,7 @@ function Organistion() {
 
   return (
     <Layout>
-      <OrganisationTable data={data} />
+      <OrganisationTable data={data} heading={"Organisation records"} />
     </Layout>
   );
 }

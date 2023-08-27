@@ -23,7 +23,7 @@ export const Donar = () => {
   }, []);
   return (
     <Layout>
-      <Donartable data={data} />
+      <Donartable data={data} heading={"Donar records"} />
     </Layout>
   );
 };

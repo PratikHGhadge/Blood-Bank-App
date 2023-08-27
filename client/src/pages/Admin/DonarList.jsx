@@ -30,13 +30,13 @@ const DonarList = () => {
         ) : (
           <>
             <div className="md:pl-64 ">
-              <h1 className="flex mt-8 items-center text-white mb-2 justify-center font-serif text-6xl font-bold bg-gradient-to-b from-red-500 to-pink-300 mx-8 py-2 -mb-4 rounded-lg">
+              <h1 className="flex mt-8 items-center text-balck mb-2 justify-center font-serif text-6xl font-bold mx-8 py-2  rounded-lg">
                 Welcome Admin {user?.name}
               </h1>
             </div>
           </>
         )}
-        <TableForAdmin data={data} />
+        <TableForAdmin data={data} list={"Donar List"} />
       </Layout>
     </>
   );

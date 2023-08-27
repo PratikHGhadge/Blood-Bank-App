@@ -1,4 +1,4 @@
-import { ArchiveBoxArrowDownIcon, HospitalIcon } from "../../Icons";
+import { ArchiveBoxArrowDownIcon, ConsumerIcon } from "../../Icons";
 
 export const hospitalMenue = [
   {
@@ -7,5 +7,5 @@ export const hospitalMenue = [
     icon: ArchiveBoxArrowDownIcon,
     current: true,
   },
-  { name: "Consumer", href: "/consumer", icon: HospitalIcon, current: false },
+  { name: "Consumer", href: "/consumer", icon: ConsumerIcon, current: false },
 ];

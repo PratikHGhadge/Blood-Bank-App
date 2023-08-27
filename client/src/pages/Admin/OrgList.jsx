@@ -18,7 +18,7 @@ function OrgList() {
   }, []);
   return (
     <Layout>
-      <TableForAdmin data={data} />
+      <TableForAdmin data={data} list={"Organisation List"} />
     </Layout>
   );
 }

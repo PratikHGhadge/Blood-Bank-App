@@ -19,7 +19,7 @@ function HospitalList() {
   return (
     <>
       <Layout>
-        <TableForAdmin data={data} />
+        <TableForAdmin data={data} list={"Hospital List"} />
       </Layout>
     </>
   );

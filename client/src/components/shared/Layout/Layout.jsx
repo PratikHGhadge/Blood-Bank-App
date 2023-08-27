@@ -4,14 +4,18 @@ import SideBar from "./SideBar";
 function Layout({ children }) {
   return (
     <>
-      <div className="header ">
-        <Header />
-      </div>
-      <div>
-        <SideBar />
-      </div>
-      <div className="bg-gradient-to-b from-red-400 to-pink-100 h-screen overflow-y-scroll">
-        {children}{" "}
+      <div className="bg-white ">
+        <div className="fixed left-0 right-0 top-0 z-10 shadow-md bg-white">
+          <Header />
+        </div>
+        <div>
+          <SideBar />
+        </div>
+
+        <div className="h-screen  overflow-y-scroll">
+          <div className="w-screen h-14  left-0 right-0 top-0"></div>
+          {children}{" "}
+        </div>
       </div>
     </>
   );

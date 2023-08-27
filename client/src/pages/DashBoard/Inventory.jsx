@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../components/shared/Layout/Layout";
 import { useSelector } from "react-redux";
 import Spinner from "../../components/shared/Spinner";
-import { PlusIcon } from "../../components/shared/Icons";
 import Modal from "../../components/shared/Modal/Modal";
 import API from "../../services/API";
 import Table from "../../components/shared/tables/InventoryTable";
-import { motion } from "framer-motion";
 
 function Inventory() {
   const { loading, error, user } = useSelector((state) => state.auth);
@@ -46,30 +44,17 @@ function Inventory() {
               <div className="max-auto   flex   flex-col md:px-8 xl:px-0">
                 <main className="flex-1 ">
                   <div className="py-3">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 1 }}
-                      initial={{ y: -100, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 300,
-                        damping: 20,
-                      }}
+                    <button
                       onClick={handelOpenModal}
-                      className="rounded-md pl-2 cursor-pointer pr-4 bg-gradient-to-b from-green-400 to-green-300 shadow-xl w-fit ml-8 mx-2 mt-2 py-2 flex items-center"
+                      class="group relative ml-10 mt-2 py-3 px-6 bg-white border border-black text-black font-medium rounded-md transition duration-200 ease-in-out hover:bg-black hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
                     >
-                      <div
-                        type="button"
-                        className="inline-flex px-5 py-4 items-center p-3 rounded-full shadow-sm text-white bg-green-500 hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
-                      >
-                        <PlusIcon className="h-6 w-6" aria-hidden="true" />
-                      </div>
-                      <div className="pl-2 text-white text-2xl">
-                        Add Inventroy
-                      </div>
-                      {/* conditional rendring */}
-                    </motion.button>
+                      <span class="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-black group-hover:translate-x-0 group-hover:translate-y-0"></span>
+                      <span class="absolute inset-0 w-full h-full bg-white border-2 border-black group-hover:bg-black"></span>
+                      <span class="relative text-black group-hover:text-white">
+                        <span className="text-2xl">+</span> Add Inventory
+                      </span>
+                    </button>
+
                     {showModal && <Modal onClose={handelCloseModal} />}
 
                     <div className="px-4 sm:px-6 md:px-0">
@@ -78,7 +63,7 @@ function Inventory() {
                         <div className="h-96  rounded-lg">
                           <hr />
                           {/* table for printing inventory data */}
-                          <Table data={data} />
+                          <Table data={data} heading={"All blood Records"} />
                         </div>
                       </div>
                     </div>

@@ -2,6 +2,7 @@ import React from "react";
 import Form from "../../components/shared/Form/Form";
 import { useSelector } from "react-redux";
 import Spinner from "../../components/shared/Spinner";
+import { LogoIcon } from "../../components/shared/Icons";
 const Register = () => {
   const { loading, error } = useSelector((state) => state.auth);
   return (
@@ -9,24 +10,16 @@ const Register = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <div className="md:flex  shadow-md">
-          <div className="w-auto  m-0 shadow-md">
-            <img
-              className="object-cover w-full h-full"
-              src="./assets/bloodTesting.jpg"
-              alt="register"
-            />
-          </div>
-          <div className="flex items-center">
-            <div className="flex w-full h-full justify-end items-center">
-              <div className=" w-full">
-                <Form
-                  formType={"register"}
-                  formTitle={"Register"}
-                  submitBtn={"Register"}
-                />
-              </div>
+        <div className="md:flex h-screen items-center justify-center ">
+          <div className="rounded-xl shadow-xl py-10 bg-gray-50 my-auto items-center">
+            <div className="flex justify-center ">
+              <LogoIcon></LogoIcon>
             </div>
+            <Form
+              formType={"register"}
+              formTitle={"Register"}
+              submitBtn={"Register"}
+            />
           </div>
         </div>
       )}

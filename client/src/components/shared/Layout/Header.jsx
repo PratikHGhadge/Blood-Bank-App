@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { UserIcon, MenuIcon } from "../Icons";
+import { UserIcon, MenuIcon, LogoIcon } from "../Icons";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -22,26 +22,32 @@ function Header() {
     });
     navigate("/login");
   };
+
   return (
     <>
-      <div className=" hidden md:block drop-shadow-2xl z-10 ">
-        <div className="sticky top-0 z-10 flex-shrink-0 h-16  bg-white border-b  border-red-300 flex bg-gradient-to-b from-red-400 to-red-500">
-          <div className="flex-1 flex justify-between px-4 md:px-0">
-            <div className="flex-1 my-2 flex"></div>
-
-            <div className="flex items-center  mx-4">
-              <UserIcon />
-              <div className="flex mx-4 text-xl text-white ">
-                <h3>Welcom_ </h3>
-                <h3>{user?.name}</h3>
-                <h3>{user?.organisationName}</h3>
-                <h3>{user?.hospitalName}</h3>
-              </div>
-              <span className="inline-block px-2 py-1 text-sm font-semibold text-black bg-green-400 rounded">
-                {user?.role}
-              </span>
+      <div className=" hidden md:block  ">
+        <div
+          className="sticky top-0 z-10 flex-shrink-0 h-16  bg-white border-b  flex 
+        "
+        >
+          <div className="flex-1 flex justify-end px-4 md:px-0">
+            <div className="absolute top-0 left-0 bottom-0 right-0 my-2 ml-6">
+              <LogoIcon></LogoIcon>
             </div>
-            <div className="ml-4 flex mr-4 items-center md:ml-6 ">
+
+            <div className="ml-4 flex mr-4 items-center md:ml-6 z-0 ">
+              <div className="flex items-center  mx-4">
+                <UserIcon />
+                <div className="flex mx-4 text-xl text-black ">
+                  <h3>Welcom_ </h3>
+                  <h3>{user?.name}</h3>
+                  <h3>{user?.organisationName}</h3>
+                  <h3>{user?.hospitalName}</h3>
+                </div>
+                <span className="inline-block px-2 py-1 text-sm font-semibold text-black bg-green-400 rounded">
+                  {user?.role}
+                </span>
+              </div>
               <button
                 type="button"
                 onClick={handleLogout}

@@ -25,7 +25,7 @@ function Donation() {
 
   return (
     <Layout>
-      <ConsumerAndDonationTable data={data}/>
+      <ConsumerAndDonationTable data={data} heading={"Donation records"} />
     </Layout>
   );
 }

@@ -18,7 +18,7 @@ function Hospital() {
 
   return (
     <Layout>
-      <HospitalTable data={data} />
+      <HospitalTable data={data} heading={"Hospital records"} />
     </Layout>
   );
 }
