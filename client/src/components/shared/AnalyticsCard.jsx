@@ -12,10 +12,7 @@ function AnalyticsCard({ data }) {
   return (
     <div>
       {" "}
-      <ul
-        role="list"
-        className="md:pl-64 m-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 "
-      >
+      <ul className="md:pl-64 m-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 ">
         {data.map((bloodGroup) => (
           <motion.li
             whileHover={{ scale: 1.05 }}

@@ -32,7 +32,7 @@ function Organistion() {
     console.log(user);
     if (!user) return;
     getOrganistationData();
-  }, [user]);
+  }, [user, getOrganistationData]);
 
   return (
     <Layout>

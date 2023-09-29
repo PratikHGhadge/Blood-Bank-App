@@ -7,7 +7,7 @@ import API from "../../services/API";
 import Table from "../../components/shared/tables/InventoryTable";
 
 function Inventory() {
-  const { loading, error, user } = useSelector((state) => state.auth);
+  const { loading, error } = useSelector((state) => state.auth);
   const [showModal, setModal] = useState(false);
   const [data, setData] = useState([]);
   // get function

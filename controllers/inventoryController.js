@@ -7,13 +7,10 @@ const createInventoryController = async (req, res) => {
   try {
     const { email } = req.body;
     //validation
-
     const user = await userModel.findOne({ email });
-
     if (!user) {
       throw new Error("User Not Found Please enter valid email address");
     }
-
     // calculations
     if (req.body.inventoryType == "out") {
       const requestedBloodGroup = req.body.bloodGroup;

@@ -11,8 +11,6 @@ function Analytics() {
   const [data, setData] = useState([]);
   const [recentData, setRecentData] = useState([]);
 
-  const colors = {};
-
   const getBloodGroupData = async () => {
     try {
       const { data } = await API.get("/analytics/bloodGroup-data");

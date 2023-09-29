@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Spinner from "../../components/shared/Spinner";
 import { LogoIcon } from "../../components/shared/Icons";
 const Register = () => {
-  const { loading, error } = useSelector((state) => state.auth);
+  const { loading } = useSelector((state) => state.auth);
   return (
     <>
       {loading ? (

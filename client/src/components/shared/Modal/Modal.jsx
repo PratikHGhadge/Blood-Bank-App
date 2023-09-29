@@ -34,7 +34,7 @@ const Modal = ({ onClose }) => {
           position: "top-right",
           autoClose: 3000,
         });
-      } else if (data?.success == false) {
+      } else if (data?.success === false) {
         toast.warn(data.message, {
           position: "top-right",
           autoClose: 3000,

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { LogoIcon, MenuIcon } from "../../shared/Icons";
+import { LogoIcon } from "../../shared/Icons";
 import { OrganistionMenue } from "./menus/organisationMenu";
 import { hospitalMenue } from "./menus/hospitalMenu";
 import { donarMenue } from "./menus/donarMenu";

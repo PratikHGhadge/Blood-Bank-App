@@ -1,5 +1,4 @@
 import moment from "moment";
-import { useEffect } from "react";
 export default function OrganisationTable({ data, heading }) {
   return (
     <div className="flex md:pl-64 m-8  flex-col">
