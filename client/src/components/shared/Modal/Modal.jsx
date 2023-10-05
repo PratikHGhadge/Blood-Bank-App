@@ -27,7 +27,6 @@ const Modal = ({ onClose }) => {
         quantity,
         email,
         organisation: user?._id,
-        email,
       });
       if (data?.success) {
         toast.success(data.message, {
