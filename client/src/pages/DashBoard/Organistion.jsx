@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Layout from "../../components/shared/Layout/Layout";
 import API from "../../services/API";
 import OrganisationTable from "../../components/shared/tables/OrganisationTable";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux";
 
 function Organistion() {
   const [data, setData] = useState([]);
@@ -19,8 +19,6 @@ function Organistion() {
       const { data } = await API.get(
         "/inventory/get-organisation-for-hospital"
       );
-      console.log("Hospitals data");
-      console.log(data.organisations);
       if (data?.success) {
         setData(() => data.organisations);
       }
@@ -28,11 +26,9 @@ function Organistion() {
   };
 
   useEffect(() => {
-    console.log("Fetching.....");
-    console.log(user);
     if (!user) return;
     getOrganistationData();
-  }, [user, getOrganistationData]);
+  }, [user]);
 
   return (
     <Layout>

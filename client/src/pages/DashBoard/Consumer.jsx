@@ -6,7 +6,7 @@ import ConsumerAndDonationTable from "../../components/shared/tables/ConsumerAnd
 
 function Consumer() {
   const { user } = useSelector((state) => state.auth);
-  const [data, setData] = new useState([]);
+  const [data, setData] = useState([]);
   const getConsumerData = async () => {
     const { data } = await API.post("/inventory/get-inventory-hospital", {
       filters: {
@@ -21,7 +21,7 @@ function Consumer() {
 
   useEffect(() => {
     getConsumerData();
-  }, [getConsumerData]);
+  }, []);
 
   return (
     <Layout>
