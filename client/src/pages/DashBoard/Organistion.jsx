@@ -8,26 +8,25 @@ function Organistion() {
   const [data, setData] = useState([]);
   const { user } = useSelector((state) => state.auth);
 
-  const getOrganistationData = async () => {
-    if (user?.role === "donar") {
-      const { data } = await API.get("/inventory/get-organisation");
-      if (data?.success) {
-        setData(() => data.organisations);
-      }
-    }
-    if (user?.role === "hospital") {
-      const { data } = await API.get(
-        "/inventory/get-organisation-for-hospital"
-      );
-      if (data?.success) {
-        setData(() => data.organisations);
-      }
-    }
-  };
-
   useEffect(() => {
     if (!user) return;
-    getOrganistationData();
+
+    (async () => {
+      if (user?.role === "donar") {
+        const { data } = await API.get("/inventory/get-organisation");
+        if (data?.success) {
+          setData(() => data.organisations);
+        }
+      }
+      if (user?.role === "hospital") {
+        const { data } = await API.get(
+          "/inventory/get-organisation-for-hospital"
+        );
+        if (data?.success) {
+          setData(() => data.organisations);
+        }
+      }
+    })();
   }, [user]);
 
   return (
