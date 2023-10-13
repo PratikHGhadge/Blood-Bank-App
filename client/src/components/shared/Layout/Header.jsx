@@ -39,7 +39,7 @@ function Header() {
               <div className="flex items-center  mx-4">
                 <UserIcon />
                 <div className="flex mx-4 text-xl text-black ">
-                  <h3>Welcom_ </h3>
+                  <h3>Welcome_ </h3>
                   <h3>{user?.name}</h3>
                   <h3>{user?.organisationName}</h3>
                   <h3>{user?.hospitalName}</h3>

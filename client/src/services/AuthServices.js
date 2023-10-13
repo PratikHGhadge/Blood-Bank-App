@@ -1,13 +1,13 @@
 import store from "../redux/Store";
 import { userLogin, userRegister } from "../redux/features/auth/authActions";
 
-export const handleLogin = (e, email, password, role) => {
+export const handleLogin = (e, email, password, role, history) => {
   e.preventDefault();
   try {
     if (!role || !email || !password) {
       return alert("Please provide all fields");
     }
-    store.dispatch(userLogin({ email, password, role }));
+    store.dispatch(userLogin({ email, password, role, history }));
   } catch (error) {
     alert("error accured");
     console.log(error);
@@ -24,7 +24,8 @@ export const handleRegister = (
   organisationName,
   address,
   hospitalName,
-  website
+  website,
+  history
 ) => {
   e.preventDefault();
   try {
@@ -39,10 +40,11 @@ export const handleRegister = (
         address,
         hospitalName,
         website,
+        history,
       })
     );
   } catch (error) {
-    alert("error accured");
+    alert("error accrued");
     console.log(error);
   }
 };

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { InputType } from "./InputType";
 import { handleLogin, handleRegister } from "../../../services/AuthServices";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const roles = [
   { id: "admin", title: "Admin" },
@@ -20,12 +22,13 @@ function Form({ formType, formTitle, submitBtn }) {
   const [website, setWebsite] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
+  const history = useNavigate();
   return (
     <div className="">
       <form
         onSubmit={(e) => {
           if (formType === "login") {
-            return handleLogin(e, email, password, role);
+            return handleLogin(e, email, password, role, history);
           } else {
             return handleRegister(
               e,
@@ -37,7 +40,8 @@ function Form({ formType, formTitle, submitBtn }) {
               organisationName,
               address,
               hospitalName,
-              website
+              website,
+              history
             );
           }
         }}
@@ -194,22 +198,22 @@ function Form({ formType, formTitle, submitBtn }) {
         {formType === "login" ? (
           <p className="mt-4 text-center text-sm text-gray-600">
             Not registerd yet ?{" "}
-            <a
-              href="/register"
+            <Link
+              to="/register"
               className="font-medium text-black hover:text-black"
             >
               Register!
-            </a>
+            </Link>
           </p>
         ) : (
           <p className="mt-4 text-center text-sm text-gray-600">
             Already User Please{" "}
-            <a
-              href="/login"
+            <Link
+              to="/login"
               className="font-medium text-black hover:text-black"
             >
               Login!
-            </a>
+            </Link>
           </p>
         )}
       </form>
