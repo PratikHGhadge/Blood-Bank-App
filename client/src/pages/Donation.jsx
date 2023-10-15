@@ -8,7 +8,7 @@ function Donation() {
   const { user } = useSelector((state) => state.auth);
   const [data, setData] = new useState([]);
   const getConsumerData = async () => {
-    const { data } = await API.post("/inventory/get-inventory-hospital", {
+    const { data } = await API.get("/inventory/get-inventory-hospital", {
       filters: {
         inventoryType: "in",
         donar: user?._id,
@@ -17,6 +17,7 @@ function Donation() {
     if (data?.success) {
       setData(data.inventory);
     }
+    return data;
   };
 
   useEffect(() => {

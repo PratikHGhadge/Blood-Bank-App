@@ -116,14 +116,14 @@ const getInventoryController = async (req, res) => {
   try {
     const inventory = await inventoryModel
       .find({
-        organisation: req.body.userId,
+        oraganisation: req.body.userId,
       })
       .populate("donar")
       .populate("hospital")
       .sort({ createdAt: -1 });
     return res.status(200).send({
       success: true,
-      message: "get all recoreds successfully ",
+      message: "get all records successfully ",
       inventory,
     });
   } catch (error) {
@@ -184,7 +184,7 @@ const getDonarsController = async (req, res) => {
   }
 };
 
-// GET DONAR RECORDS
+// GET Hospital RECORDS
 const getHospitalsController = async (req, res) => {
   try {
     const organisation = req.body.userId;
@@ -192,12 +192,10 @@ const getHospitalsController = async (req, res) => {
     const hospitalId = await inventoryModel.distinct("hospital", {
       organisation,
     });
-    // console.log(donarId)
     const hospitals = await userModel.find({ _id: { $in: hospitalId } });
-    // console.log(donars);
     return res.status(200).send({
       success: true,
-      message: "Donar Record Fetched Successfully",
+      message: "Hospital Record Fetched Successfully",
       hospitals,
     });
   } catch (error) {

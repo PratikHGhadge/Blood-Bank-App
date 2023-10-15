@@ -8,7 +8,7 @@ const getDonarList = async (req, res) => {
       .sort({ createdAt: -1 });
     return res.status(200).send({
       success: true,
-      message: "Donar data fetched successfully",
+      message: "Donar data fetched successfully ",
       donarData,
     });
   } catch (error) {
@@ -20,6 +20,7 @@ const getDonarList = async (req, res) => {
     });
   }
 };
+
 // get all hospital data
 const getHospitalList = async (req, res) => {
   try {
@@ -41,15 +42,16 @@ const getHospitalList = async (req, res) => {
     });
   }
 };
+
 // get all organization data
 const getOrganisationList = async (req, res) => {
   try {
     const organizationData = await userModel
-      .find({ role: "organization" })
+      .find({ role: "oraganisation" })
       .sort({ createdAt: -1 });
     return res.status(200).send({
       success: true,
-      message: "hospital data fetched successfully",
+      message: "organization data fetched successfully ",
       organizationData,
     });
   } catch (error) {
@@ -61,10 +63,10 @@ const getOrganisationList = async (req, res) => {
     });
   }
 };
+
 // Delete User
 const deleteUser = async (req, res) => {
   try {
-    console.log("hellllllllllllllllllo");
     await userModel.findByIdAndDelete(req.params.id);
     return res.status(200).send({
       success: true,
