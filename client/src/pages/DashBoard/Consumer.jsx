@@ -21,7 +21,7 @@ function Consumer() {
 
   useEffect(() => {
     getConsumerData();
-  }, [getConsumerData]);
+  }, []);
 
   return (
     <Layout>

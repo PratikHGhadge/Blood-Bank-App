@@ -98,7 +98,7 @@ const getInventoryHospitalController = async (req, res) => {
       .sort({ createdAt: -1 });
     return res.status(200).send({
       success: true,
-      message: "get hospitals consumers recoreds successfully ",
+      message: "get hospitals consumers recodes successfully ",
       inventory,
     });
   } catch (error) {
@@ -116,14 +116,14 @@ const getInventoryController = async (req, res) => {
   try {
     const inventory = await inventoryModel
       .find({
-        oraganisation: req.body.userId,
+        organisation: req.body.userId,
       })
       .populate("donar")
       .populate("hospital")
       .sort({ createdAt: -1 });
     return res.status(200).send({
       success: true,
-      message: "get all records successfully ",
+      message: "get all records successfully",
       inventory,
     });
   } catch (error) {

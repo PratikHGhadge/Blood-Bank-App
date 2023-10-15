@@ -15,7 +15,6 @@ const router = express.Router();
 
 // routes
 // Add Inventory || Post
-
 router.post("/create-inventory", authMiddelware, createInventoryController);
 
 // get inventory || get
